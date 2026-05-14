@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1 
  
 # Step 2: Download dependencies 
-FROM node:22-alpine AS builder 
+FROM --platform=$BUILDPLATFORM node:20-alpine AS builder
 WORKDIR /app 
 COPY package*.json ./ 
 RUN npm install --no-fund --no-audit 
